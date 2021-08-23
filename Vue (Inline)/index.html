@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue | Intro</title>
+    <style>
+    header{
+        background-color: gray;
+        padding: 20px;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <app-header></app-header>
+        <app-footer></app-footer>
+    </div>
+
+    <script src="vue3.js"></script>
+    <script>
+        const app = Vue.createApp({
+            // template:"<h1>{{msg}}</h1>",
+            //state of app
+            data(){
+                return{
+                    counter:0,
+                    ok: true,
+                    msg:'Task APP'
+                }
+            },
+        })
+
+        app.component('app-header', {
+            template:`
+            <header>
+                <h1>Task App</h1>
+            </header>
+            `,
+            data(){
+                return{
+                    phoneNumber: '09078264663',
+                }
+            },
+            methods:{
+                greet(){
+                    alert('Hey')
+                }
+            }
+        })
+        app.component('app-footer', {
+            template:"<p>Hello from Gift</p>"
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
