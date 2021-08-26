@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Vue | Task360</title>
+</head>
+<body>
+    <header>
+        <h1>Task 360</h1>
+    </header>
+
+    <div id="app">
+        <form v-on:submit.prevent="addTask">
+            <input type="text" v-model="title">
+            <button type="submit">Add</button>
+        </form>
+        <ul>
+            <li v-for="(item, index) in tasks">
+                <p :class="{completed:item.completed}">{{item.title}}</p>
+                <button type="button" v-on:click="removeTask(index)">&times;</button>
+                <button type="button" v-on:click="completeTask(index)">&check;</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue3.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
